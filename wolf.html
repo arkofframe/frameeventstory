@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <script type="text/javascript">
+        var bgmStop = false;
+        var inProduction = true;
+        var isAndApp = false;
+        var isChromeApp = false;
+        var isShellApp = false;
+        var serverName = 'http://m.i-sidem.idolmaster.jp/';
+        var IMG_VER = '2019122701/';
+        var phpConfig = {
+            hostname: 'http://m.i-sidem.idolmaster.jp',
+            isMobageGadgetUrl: true
+        }
+        phpConfig.mobageGadgetUrl = '//g12017647.sp.pf.mbga.jp/?url=';
+
+        //本番でコンソールログが出ないように
+        console.assert = console.error = console.log = console.time = console.timeEnd = console.warn = console.debug = function() {};
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>ｱｲﾄﾞﾙﾏｽﾀｰ SideM</title>
+    <link rel="icon" href="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fbookmark_icon%2Ffavicon.png" type="image/png" />
+    <link rel="apple-touch-icon-precomposed" href="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fbookmark_icon%2Fapple-touch-icon-57x57-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fbookmark_icon%2Fapple-touch-icon-57x57-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fbookmark_icon%2Fapple-touch-icon-72x72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fbookmark_icon%2Fapple-touch-icon-114x114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fbookmark_icon%2Fapple-touch-icon-144x144-precomposed.png" />
+    <script>
+        var isShellApp = false;
+        var isChromeApp = false;
+        var isAndApp = false;
+        var isFullWidth = false;
+    </script>
+
+
+
+    <link rel="stylesheet" type="text/css" media="all" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Ftmp%2Fcss_edc277ae20f0070f0badba8a9803fe4d.css" />
+    <link rel="stylesheet" type="text/css" href="http://sp.pf-img-a.mbga.jp/css/base.css?20171116" />
+</head>
+
+<body class="bgbasestar">
+    <script type="text/javascript" src="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Ftmp%2Fjs_9143180e6f82d1c77df230c0570f565d.js"></script>
+
+    <div id="container">
+        <div id="layout" class="">
+            <div id="header">
+                <div id="pagehead" name="pagehead" class="">
+                    <ul class="global-menu clearfix">
+                        <li class="mydesk"><a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fuser%2Fhome">ﾏｲﾃﾞｽｸ</a></li>
+                        <li class="quest"><a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fquest%2F">営業</a></li>
+                        <li class="event_mixed"><a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fmixed%2F">ﾚｯｽﾝ</a></li>
+                        <li class="gacha"><a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fgacha%2Fevent">ｽｶｳﾄｶﾞｼｬ</a></li>
+
+
+                        <li class="event"><a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fevent%2Fthe_seven_gods_of_fortune_live%2Findex">営業</a></li>
+                        <li id="li-menu" data-sound="c" class="menu"><a>ﾒﾆｭｰ</a></li>
+                    </ul>
+                    <div class="option">
+                        <div class="banner_top">
+
+                            <ul class="campaign-banner_area " style="" id="">
+
+
+                                <li class="banner_list">
+                                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Futility%2Fctr_banner%2F100%2F1%2FL2Jhbm5lci9jYW1wYWlnbi9iYW5uZXJfMjAyMG5ld3llYXI%3D%2FL2NhbXBhaWduL25ld3llYXIyMDIwLw%3D%3D%2FL2RyYW1hX3JlcGxheS9ldmVudF9saXN0Lw%3D%3D%2F0%2F5546" class="banner_list">
+
+
+                                        <img class="e-img banner_new" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fnew02.png" width="32" height="15" alt="" style="" border="0" />
+
+                                        <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fbanner%2Fcampaign%2Fbanner_2020newyear.png" width="300" height="" alt="" style="" border="0" />
+                                        <div><span class="txt"><span class="fc-strong">社長からのお年玉</span>を受け取れます!</span></div>
+
+                                    </a>
+                                </li>
+
+
+                                <li class="banner_list">
+                                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Futility%2Fctr_banner%2F100%2F1%2FL2Jhbm5lci9ldmVudC9iYW5uZXJfZXZlbnRfMjU1X21ubHlndnB3YXpva2d1YQ%3D%3D%2FL2V2ZW50L3RoZV9zZXZlbl9nb2RzX29mX2ZvcnR1bmVfbGl2ZS9pbmRleA%3D%3D%2FL2RyYW1hX3JlcGxheS9ldmVudF9saXN0Lw%3D%3D%2F0%2F5502000" class="banner_list">
+
+
+                                        <img class="e-img banner_new" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fnew02.png" width="32" height="15" alt="" style="" border="0" />
+
+                                        <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fbanner%2Fevent%2Fbanner_event_255_mnlygvpwazokgua.png" width="300" height="" alt="" style="" border="0" />
+                                        <div><span class="txt">参加時に<span class="fc-plus">体力･ｱﾋﾟｰﾙ力全回復!</span></span></div>
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ui-bg-main ">
+                            <div class="menubox ">
+                                <dl class="button">
+                                    <dt><span class="label stage">お仕事</span></dt>
+                                    <dl>
+                                        <dd><a class="quest" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fquest%2Findex%2F">営業</a></dd>
+                                        <dd><a class="live" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Flive%2F">ﾗｲﾌﾞ</a></dd>
+                                        <dd><a class="battle" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fbattle%2Frival_list">ｵｰﾃﾞｨｼｮﾝﾊﾞﾄﾙ</a></dd>
+                                    </dl>
+                                </dl>
+                                <img class="e-img line" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fline%2Fline06.png" width="320" height="11" alt="" style="" border="0" />
+                                <dl class="button">
+                                    <dt><span class="label formation">育成</span></dt>
+                                    <dl>
+                                        <dd><a class="mixed" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fmixed%2F">ﾚｯｽﾝ</a></dd>
+                                        <dd><a class="evolution" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fmixed%2Fevolution%2F">ﾁｪﾝｼﾞ!</a></dd>
+                                        <dd><a class="gacha" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fgacha%2Fevent">ｽｶｳﾄｶﾞｼｬ</a></dd>
+                                    </dl>
+                                </dl>
+                                <img class="e-img line" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fline%2Fline06.png" width="320" height="11" alt="" style="" border="0" />
+                                <dl class="button">
+                                    <dt><span class="label unit">ﾕﾆｯﾄ</span></dt>
+                                    <dl>
+                                        <dd><a class="deck" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdeck_live%2F">ﾕﾆｯﾄ編成</a></dd>
+                                        <dd><a class="ichioshi" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fcard%2Frecommended%2F">ｲﾁｵｼﾕﾆｯﾄ</a></dd>
+                                    </dl>
+                                </dl>
+                                <img class="e-img line" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fline%2Fline06.png" width="320" height="11" alt="" style="" border="0" />
+                                <dl class="button">
+                                    <dt><span class="label card">ｱｲﾄﾞﾙ</span></dt>
+                                    <dl>
+                                        <dd><a class="album" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Falbum%2F">ｱｲﾄﾞﾙﾌｧｲﾙ</a></dd>
+                                        <dd><a class="card" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fcard%2Findex%2F">所属ｱｲﾄﾞﾙ</a></dd>
+                                        <dd><a class="dorm" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdormitory%2Findex%2F">男子寮</a></dd>
+                                        <dd><a class="sidemini" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fsidemini%2F">事務所</a></dd>
+                                        <dd><a class="sound_studio" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fsound%2F">ｻｳﾝﾄﾞｽﾀｼﾞｵ</a></dd>
+                                        <dd><a class="movie_theater" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fcontent%2Fmovie_list">&nbsp;</a></dd>
+                                    </dl>
+                                </dl>
+                                <img class="e-img line" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fline%2Fline06.png" width="320" height="11" alt="" style="" border="0" />
+                                <dl class="button">
+                                    <dt><span class="label story">ｽﾄｰﾘｰ</span></dt>
+                                    <dl>
+                                        <dd><a class="memo" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Falbum%2Fbonus%2F">思い出ﾒﾓ</a></dd>
+                                        <dd><a class="comic" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fcomic%2Fcomic_index_navi">雑誌</a></dd>
+                                        <dd><a class="event_album" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Findex%2F">ｲﾍﾞﾝﾄｱｲﾄﾞﾙﾌｧｲﾙ</a></dd>
+                                        <dd><a class="sketch" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdaily_drama_archive%2F">事務所での1コマ</a></dd>
+                                        <dd><a class="side_memories" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fside_memories%2F">Side Memories</a></dd>
+                                        <dd><a class="theater315" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Ftheater315%2F">theater315</a></dd>
+                                    </dl>
+                                </dl>
+                                <img class="e-img line" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fline%2Fline06.png" width="320" height="11" alt="" style="" border="0" />
+                                <dl class="button">
+                                    <dt><span class="label item">ｱｲﾃﾑ</span></dt>
+                                    <dl>
+                                        <dd><a class="present" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fmessage%2Fpresent%2F">ﾌﾟﾚｾﾞﾝﾄ</a></dd>
+                                        <dd><a class="shop" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fshop_item%2Findex%2Fevent%2F">ｼｮｯﾌﾟ</a></dd>
+                                        <dd><a class="item" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fitem%2F">ｱｲﾃﾑ</a></dd>
+                                        <dd><a class="exchange" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Femblem_exchange%2Fitem_list">交換所</a></dd>
+                                    </dl>
+                                </dl>
+                                <img class="e-img line" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fline%2Fline06.png" width="320" height="11" alt="" style="" border="0" />
+                                <dl class="button">
+                                    <dt><span class="label friend">仲間</span></dt>
+                                    <dl>
+                                        <dd><a class="friend" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Ffriend%2F">同僚</a></dd>
+                                        <dd><a class="gift" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fgift%2F">ｷﾞﾌﾄ</a></dd>
+                                        <dd><a class="guild" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fguild%2F">ﾁｰﾑ</a></dd>
+                                    </dl>
+                                </dl>
+                                <img class="e-img line" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fline%2Fline06.png" width="320" height="11" alt="" style="" border="0" />
+                                <dl class="button">
+                                    <dt><span class="label mydata">ﾏｲﾃﾞｰﾀ</span></dt>
+                                    <dl>
+                                        <dd><a class="mydata" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fuser%2Fmydata">ﾏｲﾃﾞｰﾀ</a></dd>
+                                        <dd><a class="change_name" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fuser%2Fchange_group_name%2F">ｸﾞﾙｰﾌﾟ名変更</a></dd>
+                                        <dd><a class="pro_title" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fuser%2Fsymbol%2F">ﾌﾟﾛﾃﾞｭｰｻｰ称号</a></dd>
+                                        <dd><a class="pmeishi" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fbusiness_card%2Findex%2F">P名刺</a></dd>
+                                        <dd><a class="wish" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fwish%2F">ﾎｼｲﾓﾉ</a></dd>
+                                        <dd><a class="chart" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Franking%2F">ｱｲﾄﾞﾙﾗﾝｷﾝｸﾞ</a></dd>
+                                    </dl>
+                                </dl>
+                                <dl class="button">
+                                    <dt></dt>
+                                    <dl>
+                                        <dd><a class="top" href="http://g12017647.sp.pf.mbga.jp/">TOP</a></dd>
+                                        <dd><a class="help" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fhelp%2F">ﾍﾙﾌﾟ</a></dd>
+                                        <dd><a class="setting" href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fsetting%2F">設定</a></dd>
+                                    </dl>
+                                </dl>
+
+
+                                <div class="ta-center"><a data-sound="c" class="menu-close">ﾒﾆｭｰを閉じる</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="main">
+                <div class="ui-title-main " id="">
+                    <h2>ｲﾍﾞﾝﾄｱﾙﾊﾞﾑ</h2>
+                </div>
+                <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fevent%2Ftower_quest63_xuykuqjhla%2Fh_event.png" width="320" height="90" alt="" style="" border="0" />
+                <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fline%2Fline01.png" width="320" height="3" alt="" style="" border="0" />
+                <div class="semi-wrap ta-center" style="padding-bottom:0;margin-bottom:-6px;">
+                    【開催期間】 2019/08/31～2019/09/09</div>
+
+
+                <div class="navi-wrapbox np-left ">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="navi_img" width="80">
+                                    <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fnavi%2Fnavi.png" width="80" height="auto" alt="" style="" border="0" />
+                                </td>
+                                <td class="navi_text">
+
+                                    <div class="balloon balloon-over balloon-green " style="">
+                                        <p style="">FRAMEと巻緒くん､咲ちゃんが人狼ｹﾞｰﾑの世界観をﾓﾁｰﾌにしたﾌｧﾝﾀｼﾞｰ映画に出演!ｹﾞｰﾑさながらの議論と緊迫するﾊﾞﾄﾙｼｰﾝは必見です!</p>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="ui-title-sub1 " id="">
+                    <h3>ｲﾍﾞﾝﾄｱｲﾄﾞﾙ</h3>
+                </div>
+
+                <div class="idol_select_slider_container posr">
+                    <div class="idol-select-info header">
+                        <div class="idol_select-5e0d6ef8580ba_title dnone" data-idol_id="301606016">
+
+                            <div class="title-box">
+                                <table>
+                                    <tr>
+                                        <td class="rarity-icon va-top">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Frarity_srp.png" width="30" height="15" alt="" style="" border="0" />
+                                        </td>
+                                        <td class="chara-name va-top">
+                                            【復讐の人狼】信玄 誠司+ </td>
+                                        <td class="chara-type va-top" style="width: 67px;">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fvoice.png" width="16" height="auto" alt="" style="" border="0" />
+
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Fmental.png" width="auto" height="16" alt="" style="" border="0" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_title dnone" data-idol_id="301605016">
+
+                            <div class="title-box">
+                                <table>
+                                    <tr>
+                                        <td class="rarity-icon va-top">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Frarity_sr.png" width="30" height="15" alt="" style="" border="0" />
+                                        </td>
+                                        <td class="chara-name va-top">
+                                            【復讐の人狼】信玄 誠司 </td>
+                                        <td class="chara-type va-top" style="width: 67px;">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fvoice.png" width="16" height="auto" alt="" style="" border="0" />
+
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Fmental.png" width="auto" height="16" alt="" style="" border="0" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_title dnone" data-idol_id="201506014">
+
+                            <div class="title-box">
+                                <table>
+                                    <tr>
+                                        <td class="rarity-icon va-top">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Frarity_srp.png" width="30" height="15" alt="" style="" border="0" />
+                                        </td>
+                                        <td class="chara-name va-top">
+                                            【魔獣を狩る者】木村 龍+ </td>
+                                        <td class="chara-type va-top" style="width: 67px;">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fvoice.png" width="16" height="auto" alt="" style="" border="0" />
+
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Fphysical.png" width="auto" height="16" alt="" style="" border="0" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_title dnone" data-idol_id="201505014">
+
+                            <div class="title-box">
+                                <table>
+                                    <tr>
+                                        <td class="rarity-icon va-top">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Frarity_sr.png" width="30" height="15" alt="" style="" border="0" />
+                                        </td>
+                                        <td class="chara-name va-top">
+                                            【魔獣を狩る者】木村 龍 </td>
+                                        <td class="chara-type va-top" style="width: 67px;">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fvoice.png" width="16" height="auto" alt="" style="" border="0" />
+
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Fphysical.png" width="auto" height="16" alt="" style="" border="0" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_title dnone" data-idol_id="101404018">
+
+                            <div class="title-box">
+                                <table>
+                                    <tr>
+                                        <td class="rarity-icon va-top">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Frarity_rp.png" width="30" height="15" alt="" style="" border="0" />
+                                        </td>
+                                        <td class="chara-name va-top">
+                                            【人狼ｹﾞｰﾑ】握野 英雄+ </td>
+                                        <td class="chara-type va-top" style="width: 67px;">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fvoice.png" width="16" height="auto" alt="" style="" border="0" />
+
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Fintelligence.png" width="auto" height="16" alt="" style="" border="0" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_title dnone" data-idol_id="101403018">
+
+                            <div class="title-box">
+                                <table>
+                                    <tr>
+                                        <td class="rarity-icon va-top">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Frarity_r.png" width="30" height="15" alt="" style="" border="0" />
+                                        </td>
+                                        <td class="chara-name va-top">
+                                            【人狼ｹﾞｰﾑ】握野 英雄 </td>
+                                        <td class="chara-type va-top" style="width: 67px;">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fvoice.png" width="16" height="auto" alt="" style="" border="0" />
+
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Fintelligence.png" width="auto" height="16" alt="" style="" border="0" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_title dnone" data-idol_id="203104018">
+
+                            <div class="title-box">
+                                <table>
+                                    <tr>
+                                        <td class="rarity-icon va-top">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Frarity_rp.png" width="30" height="15" alt="" style="" border="0" />
+                                        </td>
+                                        <td class="chara-name va-top">
+                                            【人狼ｹﾞｰﾑ】水嶋 咲+ </td>
+                                        <td class="chara-type va-top" style="width: 67px;">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fvoice.png" width="16" height="auto" alt="" style="" border="0" />
+
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Fphysical.png" width="auto" height="16" alt="" style="" border="0" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_title dnone" data-idol_id="203103018">
+
+                            <div class="title-box">
+                                <table>
+                                    <tr>
+                                        <td class="rarity-icon va-top">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Frarity_r.png" width="30" height="15" alt="" style="" border="0" />
+                                        </td>
+                                        <td class="chara-name va-top">
+                                            【人狼ｹﾞｰﾑ】水嶋 咲 </td>
+                                        <td class="chara-type va-top" style="width: 67px;">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fvoice.png" width="16" height="auto" alt="" style="" border="0" />
+
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Fphysical.png" width="auto" height="16" alt="" style="" border="0" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_title dnone" data-idol_id="303004017">
+
+                            <div class="title-box">
+                                <table>
+                                    <tr>
+                                        <td class="rarity-icon va-top">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Frarity_rp.png" width="30" height="15" alt="" style="" border="0" />
+                                        </td>
+                                        <td class="chara-name va-top">
+                                            【人狼ｹﾞｰﾑ】卯月 巻緒+ </td>
+                                        <td class="chara-type va-top" style="width: 67px;">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fvoice.png" width="16" height="auto" alt="" style="" border="0" />
+
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Fmental.png" width="auto" height="16" alt="" style="" border="0" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_title dnone" data-idol_id="303003017">
+
+                            <div class="title-box">
+                                <table>
+                                    <tr>
+                                        <td class="rarity-icon va-top">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Frarity_r.png" width="30" height="15" alt="" style="" border="0" />
+                                        </td>
+                                        <td class="chara-name va-top">
+                                            【人狼ｹﾞｰﾑ】卯月 巻緒 </td>
+                                        <td class="chara-type va-top" style="width: 67px;">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Fvoice.png" width="16" height="auto" alt="" style="" border="0" />
+
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Ficon%2Fmental.png" width="auto" height="16" alt="" style="" border="0" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="posr">
+                        <div class="idol_select_slider_wrap dnone" id="idol_select-5e0d6ef8580ba">
+                            <div class="touch_right"></div>
+                            <div class="touch_left"></div>
+                            <div class="touch_center penone"></div>
+                            <div class="idol_select_slider">
+                                <div class="idol-slide">
+                                    <div data-on="click" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0" class="idol-slide-trigger">
+
+                                        <img class="e-img " id="card-1839901683" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FpVFDFMR5kRz4xou5DKe0FoCCksSPBi1kxwJ4OP39xR72xdRG4mhdySCzVfFshtNc_media.jpg" width="320" height="400" alt="" style="" border="0" />
+                                    </div>
+                                </div>
+                                <div class="idol-slide">
+                                    <div data-on="click" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0" class="idol-slide-trigger">
+
+                                        <img class="e-img " id="card-2095591200" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FxYDFGeMfYab4xou5DKe0FoCCksSPBi1koumHCBME5YdaoUVn6aH2YStSKXBxq7G0_media.jpg" width="320" height="400" alt="" style="" border="0" />
+                                    </div>
+                                </div>
+                                <div class="idol-slide">
+                                    <div data-on="click" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0" class="idol-slide-trigger">
+
+                                        <img class="e-img " id="card-862247473" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FpDutapPKuYJXHYOBIQo-qCUV223iLKXfwLhcn70ZB6PwwJb8JSHq1gU8krsidKIz_media.jpg" width="320" height="400" alt="" style="" border="0" />
+                                    </div>
+                                </div>
+                                <div class="idol-slide">
+                                    <div data-on="click" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0" class="idol-slide-trigger">
+
+                                        <img class="e-img " id="card-315106622" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FJ-5PXGhc7oNXHYOBIQo-qCUV223iLKXf0KTrKfPEjZJwOTVlPiLbBlus2D4D_a6u_media.jpg" width="320" height="400" alt="" style="" border="0" />
+                                    </div>
+                                </div>
+                                <div class="idol-slide">
+                                    <div data-on="click" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0" class="idol-slide-trigger">
+
+                                        <img class="e-img " id="card-1150575157" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FxYDFGeMfYab8lHkaa45E7vV7XnUnwVl3FMr6k5m1ShBaoUVn6aH2YXRJd_K5FNIq_media.jpg" width="320" height="400" alt="" style="" border="0" />
+                                    </div>
+                                </div>
+                                <div class="idol-slide">
+                                    <div data-on="click" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0" class="idol-slide-trigger">
+
+                                        <img class="e-img " id="card-1659631013" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FpDutapPKuYL8lHkaa45E7vV7XnUnwVl3Bd5MsmdUC_7wwJb8JSHq1mJi6_KawWQa_media.jpg" width="320" height="400" alt="" style="" border="0" />
+                                    </div>
+                                </div>
+                                <div class="idol-slide">
+                                    <div data-on="click" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0" class="idol-slide-trigger">
+
+                                        <img class="e-img " id="card-1039722987" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2Fj1EMSKYX-bCLWMXkLb-8390G8xKnK_bOZUyojjXMO0BwOTVlPiLbBvqTjSQUMeZT_media.jpg" width="320" height="400" alt="" style="" border="0" />
+                                    </div>
+                                </div>
+                                <div class="idol-slide">
+                                    <div data-on="click" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0" class="idol-slide-trigger">
+
+                                        <img class="e-img " id="card-228860718" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FpOCtpe9NXdaLWMXkLb-8390G8xKnK_bOqmkOwNoU97wzEetBizEqJeSSAulr9jYH_media.jpg" width="320" height="400" alt="" style="" border="0" />
+                                    </div>
+                                </div>
+                                <div class="idol-slide">
+                                    <div data-on="click" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0" class="idol-slide-trigger">
+
+                                        <img class="e-img " id="card-11462603" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2ForJCjy6wlxBX9CEb-zrwKckieAxbYu2iQAzXDT8qY0TwwJb8JSHq1tJ6xhGPb5hP_media.jpg" width="320" height="400" alt="" style="" border="0" />
+                                    </div>
+                                </div>
+                                <div class="idol-slide">
+                                    <div data-on="click" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0" class="idol-slide-trigger">
+
+                                        <img class="e-img " id="card-1844627982" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2Fj1EMSKYX-bBX9CEb-zrwKckieAxbYu2iDmXEtXLS_VxwOTVlPiLbBtNWWS_-layT_media.jpg" width="320" height="400" alt="" style="" border="0" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="idol-select-info footer ta-left">
+                        <div class="idol_select-5e0d6ef8580ba_content dnone" data-idol_id="301606016">
+
+                            <div class="ui-card-serif">
+                                <div class="card-serif-name">【復讐の人狼】信玄 誠司+</div>
+                                <div class="card-serif-comment">
+                                    『覚悟しろ｡おまえも､この村の人間どもも､全員まとめて食らい尽くしてやる｡これがｵﾚの本能であり復讐だ…もう誰にも邪魔はさせない!』 </div>
+                            </div>
+                            <a href="#" class="dnone zoom-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fui%2Ficons%2Fjs%2Fpopup_zoom.png" width="26" height="25" alt="" style="" border="0" />
+                            </a>
+                            <a href="#" class="dnone info-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Finfo.png" width="20" height="20" alt="" style="" border="0" />
+                            </a>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_content dnone" data-idol_id="301605016">
+
+                            <div class="ui-card-serif">
+                                <div class="card-serif-name">【復讐の人狼】信玄 誠司</div>
+                                <div class="card-serif-comment">
+                                    誰を食えばいいか､選ぶのは心苦しいと思っていたが…あれだけ自信満々に狩人だと名乗られてしまってはな｡すまない､龍｡食わせてもらうぞ｡ </div>
+                            </div>
+                            <a href="#" class="dnone zoom-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fui%2Ficons%2Fjs%2Fpopup_zoom.png" width="26" height="25" alt="" style="" border="0" />
+                            </a>
+                            <a href="#" class="dnone info-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Finfo.png" width="20" height="20" alt="" style="" border="0" />
+                            </a>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_content dnone" data-idol_id="201506014">
+
+                            <div class="ui-card-serif">
+                                <div class="card-serif-name">【魔獣を狩る者】木村 龍+</div>
+                                <div class="card-serif-comment">
+                                    『俺が銀の弾丸をﾌﾞﾁ込むか､お前の牙が俺の喉を食いちぎるか…ｼﾝﾌﾟﾙな速さ比べだろ?さぁ､そろそろ決着をつけようぜ｡本来の姿に戻りな!』 </div>
+                            </div>
+                            <a href="#" class="dnone zoom-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fui%2Ficons%2Fjs%2Fpopup_zoom.png" width="26" height="25" alt="" style="" border="0" />
+                            </a>
+                            <a href="#" class="dnone info-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Finfo.png" width="20" height="20" alt="" style="" border="0" />
+                            </a>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_content dnone" data-idol_id="201505014">
+
+                            <div class="ui-card-serif">
+                                <div class="card-serif-name">【魔獣を狩る者】木村 龍</div>
+                                <div class="card-serif-comment">
+                                    (誠司さんが人狼だったのか､わからなかったー!しかもみんなから全然疑われてない!英雄さん､元警察官なんだから気付いてくださいよー!) </div>
+                            </div>
+                            <a href="#" class="dnone zoom-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fui%2Ficons%2Fjs%2Fpopup_zoom.png" width="26" height="25" alt="" style="" border="0" />
+                            </a>
+                            <a href="#" class="dnone info-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Finfo.png" width="20" height="20" alt="" style="" border="0" />
+                            </a>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_content dnone" data-idol_id="101404018">
+
+                            <div class="ui-card-serif">
+                                <div class="card-serif-name">【人狼ｹﾞｰﾑ】握野 英雄+</div>
+                                <div class="card-serif-comment">
+                                    『こう見えて､俺は都会じゃ名の通った占い師でね｡得意のｶｰﾄﾞ占いでなんでも見通してやるぜ｡ｶｰﾄﾞは嘘をつかない｡ｶｰﾄﾞは､な｡ｸﾋﾋｯ…!』 </div>
+                            </div>
+                            <a href="#" class="dnone zoom-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fui%2Ficons%2Fjs%2Fpopup_zoom.png" width="26" height="25" alt="" style="" border="0" />
+                            </a>
+                            <a href="#" class="dnone info-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Finfo.png" width="20" height="20" alt="" style="" border="0" />
+                            </a>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_content dnone" data-idol_id="101403018">
+
+                            <div class="ui-card-serif">
+                                <div class="card-serif-name">【人狼ｹﾞｰﾑ】握野 英雄</div>
+                                <div class="card-serif-comment">
+                                    よーし勝った!人狼が誰なのかすぐにわかってよかったぜ｡人狼側は動揺しても顔に出さないように気を付けるのがﾎﾟｲﾝﾄみたいだな｡ </div>
+                            </div>
+                            <a href="#" class="dnone zoom-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fui%2Ficons%2Fjs%2Fpopup_zoom.png" width="26" height="25" alt="" style="" border="0" />
+                            </a>
+                            <a href="#" class="dnone info-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Finfo.png" width="20" height="20" alt="" style="" border="0" />
+                            </a>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_content dnone" data-idol_id="203104018">
+
+                            <div class="ui-card-serif">
+                                <div class="card-serif-name">【人狼ｹﾞｰﾑ】水嶋 咲+</div>
+                                <div class="card-serif-comment">
+                                    『私のせいで､兄さんも疑われてる…こんなことになったのはもしかして､私のせい…なのかな｡ごめん､兄さん､かばってくれたｴｲｼﾞさんも…』 </div>
+                            </div>
+                            <a href="#" class="dnone zoom-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fui%2Ficons%2Fjs%2Fpopup_zoom.png" width="26" height="25" alt="" style="" border="0" />
+                            </a>
+                            <a href="#" class="dnone info-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Finfo.png" width="20" height="20" alt="" style="" border="0" />
+                            </a>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_content dnone" data-idol_id="203103018">
+
+                            <div class="ui-card-serif">
+                                <div class="card-serif-name">【人狼ｹﾞｰﾑ】水嶋 咲</div>
+                                <div class="card-serif-comment">
+                                    議論してると喉がｶﾗｶﾗになっちゃうよね｡はい､かみやが淹れてくれた紅茶を持ってきたよ!これを飲みながら人狼ｹﾞｰﾑをﾊﾟﾋﾟｯと楽しんじゃお! </div>
+                            </div>
+                            <a href="#" class="dnone zoom-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fui%2Ficons%2Fjs%2Fpopup_zoom.png" width="26" height="25" alt="" style="" border="0" />
+                            </a>
+                            <a href="#" class="dnone info-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Finfo.png" width="20" height="20" alt="" style="" border="0" />
+                            </a>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_content dnone" data-idol_id="303004017">
+
+                            <div class="ui-card-serif">
+                                <div class="card-serif-name">【人狼ｹﾞｰﾑ】卯月 巻緒+</div>
+                                <div class="card-serif-comment">
+                                    『都に呼ばれている父さんたちに代わって､僕が村の平和のために占ってみせます!半人前の僕にどこまでできるか､ちょっと不安ですけど…』 </div>
+                            </div>
+                            <a href="#" class="dnone zoom-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fui%2Ficons%2Fjs%2Fpopup_zoom.png" width="26" height="25" alt="" style="" border="0" />
+                            </a>
+                            <a href="#" class="dnone info-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Finfo.png" width="20" height="20" alt="" style="" border="0" />
+                            </a>
+                        </div>
+                        <div class="idol_select-5e0d6ef8580ba_content dnone" data-idol_id="303003017">
+
+                            <div class="ui-card-serif">
+                                <div class="card-serif-name">【人狼ｹﾞｰﾑ】卯月 巻緒</div>
+                                <div class="card-serif-comment">
+                                    このﾏｶﾛﾝ､英雄さんのｵｽｽﾒのお店で買ってきたんですよ｡これならｹﾞｰﾑをしながら食べられるかなって｡人狼ｹﾞｰﾑもﾏｶﾛﾝの味も楽しみましょう! </div>
+                            </div>
+                            <a href="#" class="dnone zoom-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fui%2Ficons%2Fjs%2Fpopup_zoom.png" width="26" height="25" alt="" style="" border="0" />
+                            </a>
+                            <a href="#" class="dnone info-btn" data-ui="popup" data-target="popup-cards-5e0d6ef8584a0">
+                                <img class="e-img zoom diblock posa" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Finfo.png" width="20" height="20" alt="" style="" border="0" />
+                            </a>
+                        </div>
+
+                        <div class="idol-select-popup-card-slider dnone use-backdrop" id="popup-cards-5e0d6ef8584a0">
+                            <div class="btn-wrap">
+                                <a class="info-btn" data-sound="a"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Ficon%2Finfo.png" width="20" height="20" alt="" style="" border="0" />
+                                </a>
+                                <a href="#" class="close-btn" data-sound="b" data-dismiss="popup"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Ficons%2Fjs%2Fpopup_question_mark_2.png" width="22" height="22" alt="" style="" border="0" />
+                                </a>
+                            </div>
+                            <div class="idol-select-card-slider" id="slider-popup-cards-5e0d6ef8584a0">
+
+
+                                <div class="idol-select-popup-card-slide">
+                                    <div class="idol-select-popup-tab popup-tab-idol-card">
+
+                                        <img class="e-img card-detail" id="card-57687626" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FpVFDFMR5kRz4xou5DKe0FoCCksSPBi1kxwJ4OP39xR72xdRG4mhdySCzVfFshtNc_media.jpg" width="320" height="400" alt="" style="" border="0" />
+
+                                        <div class="ui-card-serif">
+                                            <div class="card-serif-name">【復讐の人狼】信玄 誠司+</div>
+                                            <div class="card-serif-comment">
+                                                『覚悟しろ｡おまえも､この村の人間どもも､全員まとめて食らい尽くしてやる｡これがｵﾚの本能であり復讐だ…もう誰にも邪魔はさせない!』 </div>
+                                        </div>
+                                        <div class="curved_black_box bg-8 fc-alert ta-center fs-10">
+                                            ※【復讐の人狼】信玄 誠司が<br />ﾁｪﾝｼﾞ!するとこの姿になります｡ </div>
+                                    </div>
+                                    <div class="idol-select-popup-tab dnone popup-tab-idol-info is-close">
+                                        <div class="w300 ml10 mr10 mb10">
+
+                                            <div class="ui-title-accordion " id="">
+                                                <h3>ｱｲﾄﾞﾙ情報</h3>
+                                            </div>
+                                            <div class="card-idol_info">
+                                                <table>
+                                                    <tr>
+                                                        <th><span class="card-label">氏名</span></th>
+                                                        <td colspan="3">信玄 誠司 (ｼﾝｹﾞﾝｾｲｼﾞ)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">誕生日</span></th>
+                                                        <td>12月24日</td>
+                                                        <th><span class="card-label">年齢</span></th>
+                                                        <td>31才</td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th><span class="card-label">身長</span></th>
+                                                        <td>185.0cm</td>
+                                                        <th><span class="card-label">体重</span></th>
+                                                        <td>78.0kg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">靴のｻｲｽﾞ</span></th>
+                                                        <td>27.0cm</td>
+                                                        <th><span class="card-label">利き手</span></th>
+                                                        <td>右利き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">星座</span></th>
+                                                        <td>山羊座</td>
+                                                        <th><span class="card-label">血液型</span></th>
+                                                        <td>B型</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">出身地</span></th>
+                                                        <td colspan="3">熊本</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">趣味</span></th>
+                                                        <td colspan="3">料理</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">特技</span></th>
+                                                        <td colspan="3">銃器類の早解体</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="idol-select-popup-card-slide">
+                                    <div class="idol-select-popup-tab popup-tab-idol-card">
+
+                                        <img class="e-img card-detail" id="card-189354793" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FxYDFGeMfYab4xou5DKe0FoCCksSPBi1koumHCBME5YdaoUVn6aH2YStSKXBxq7G0_media.jpg" width="320" height="400" alt="" style="" border="0" />
+
+                                        <div class="ui-card-serif">
+                                            <div class="card-serif-name">【復讐の人狼】信玄 誠司</div>
+                                            <div class="card-serif-comment">
+                                                誰を食えばいいか､選ぶのは心苦しいと思っていたが…あれだけ自信満々に狩人だと名乗られてしまってはな｡すまない､龍｡食わせてもらうぞ｡ </div>
+                                        </div>
+                                    </div>
+                                    <div class="idol-select-popup-tab dnone popup-tab-idol-info is-close">
+                                        <div class="w300 ml10 mr10 mb10">
+
+                                            <div class="ui-title-accordion " id="">
+                                                <h3>ｱｲﾄﾞﾙ情報</h3>
+                                            </div>
+                                            <div class="card-idol_info">
+                                                <table>
+                                                    <tr>
+                                                        <th><span class="card-label">氏名</span></th>
+                                                        <td colspan="3">信玄 誠司 (ｼﾝｹﾞﾝｾｲｼﾞ)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">誕生日</span></th>
+                                                        <td>12月24日</td>
+                                                        <th><span class="card-label">年齢</span></th>
+                                                        <td>31才</td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th><span class="card-label">身長</span></th>
+                                                        <td>185.0cm</td>
+                                                        <th><span class="card-label">体重</span></th>
+                                                        <td>78.0kg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">靴のｻｲｽﾞ</span></th>
+                                                        <td>27.0cm</td>
+                                                        <th><span class="card-label">利き手</span></th>
+                                                        <td>右利き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">星座</span></th>
+                                                        <td>山羊座</td>
+                                                        <th><span class="card-label">血液型</span></th>
+                                                        <td>B型</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">出身地</span></th>
+                                                        <td colspan="3">熊本</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">趣味</span></th>
+                                                        <td colspan="3">料理</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">特技</span></th>
+                                                        <td colspan="3">銃器類の早解体</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="idol-select-popup-card-slide">
+                                    <div class="idol-select-popup-tab popup-tab-idol-card">
+
+                                        <img class="e-img card-detail" id="card-1270872936" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FpDutapPKuYJXHYOBIQo-qCUV223iLKXfwLhcn70ZB6PwwJb8JSHq1gU8krsidKIz_media.jpg" width="320" height="400" alt="" style="" border="0" />
+
+                                        <div class="ui-card-serif">
+                                            <div class="card-serif-name">【魔獣を狩る者】木村 龍+</div>
+                                            <div class="card-serif-comment">
+                                                『俺が銀の弾丸をﾌﾞﾁ込むか､お前の牙が俺の喉を食いちぎるか…ｼﾝﾌﾟﾙな速さ比べだろ?さぁ､そろそろ決着をつけようぜ｡本来の姿に戻りな!』 </div>
+                                        </div>
+                                        <div class="curved_black_box bg-8 fc-alert ta-center fs-10">
+                                            ※【魔獣を狩る者】木村 龍が<br />ﾁｪﾝｼﾞ!するとこの姿になります｡ </div>
+                                    </div>
+                                    <div class="idol-select-popup-tab dnone popup-tab-idol-info is-close">
+                                        <div class="w300 ml10 mr10 mb10">
+
+                                            <div class="ui-title-accordion " id="">
+                                                <h3>ｱｲﾄﾞﾙ情報</h3>
+                                            </div>
+                                            <div class="card-idol_info">
+                                                <table>
+                                                    <tr>
+                                                        <th><span class="card-label">氏名</span></th>
+                                                        <td colspan="3">木村 龍 (ｷﾑﾗﾘｭｳ)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">誕生日</span></th>
+                                                        <td>5月5日</td>
+                                                        <th><span class="card-label">年齢</span></th>
+                                                        <td>20才</td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th><span class="card-label">身長</span></th>
+                                                        <td>175.0cm</td>
+                                                        <th><span class="card-label">体重</span></th>
+                                                        <td>70.0kg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">靴のｻｲｽﾞ</span></th>
+                                                        <td>26.0cm</td>
+                                                        <th><span class="card-label">利き手</span></th>
+                                                        <td>右利き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">星座</span></th>
+                                                        <td>牡牛座</td>
+                                                        <th><span class="card-label">血液型</span></th>
+                                                        <td>B型</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">出身地</span></th>
+                                                        <td colspan="3">千葉</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">趣味</span></th>
+                                                        <td colspan="3">昼寝</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">特技</span></th>
+                                                        <td colspan="3">裁縫</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="idol-select-popup-card-slide">
+                                    <div class="idol-select-popup-tab popup-tab-idol-card">
+
+                                        <img class="e-img card-detail" id="card-419007565" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FJ-5PXGhc7oNXHYOBIQo-qCUV223iLKXf0KTrKfPEjZJwOTVlPiLbBlus2D4D_a6u_media.jpg" width="320" height="400" alt="" style="" border="0" />
+
+                                        <div class="ui-card-serif">
+                                            <div class="card-serif-name">【魔獣を狩る者】木村 龍</div>
+                                            <div class="card-serif-comment">
+                                                (誠司さんが人狼だったのか､わからなかったー!しかもみんなから全然疑われてない!英雄さん､元警察官なんだから気付いてくださいよー!) </div>
+                                        </div>
+                                    </div>
+                                    <div class="idol-select-popup-tab dnone popup-tab-idol-info is-close">
+                                        <div class="w300 ml10 mr10 mb10">
+
+                                            <div class="ui-title-accordion " id="">
+                                                <h3>ｱｲﾄﾞﾙ情報</h3>
+                                            </div>
+                                            <div class="card-idol_info">
+                                                <table>
+                                                    <tr>
+                                                        <th><span class="card-label">氏名</span></th>
+                                                        <td colspan="3">木村 龍 (ｷﾑﾗﾘｭｳ)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">誕生日</span></th>
+                                                        <td>5月5日</td>
+                                                        <th><span class="card-label">年齢</span></th>
+                                                        <td>20才</td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th><span class="card-label">身長</span></th>
+                                                        <td>175.0cm</td>
+                                                        <th><span class="card-label">体重</span></th>
+                                                        <td>70.0kg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">靴のｻｲｽﾞ</span></th>
+                                                        <td>26.0cm</td>
+                                                        <th><span class="card-label">利き手</span></th>
+                                                        <td>右利き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">星座</span></th>
+                                                        <td>牡牛座</td>
+                                                        <th><span class="card-label">血液型</span></th>
+                                                        <td>B型</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">出身地</span></th>
+                                                        <td colspan="3">千葉</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">趣味</span></th>
+                                                        <td colspan="3">昼寝</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">特技</span></th>
+                                                        <td colspan="3">裁縫</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="idol-select-popup-card-slide">
+                                    <div class="idol-select-popup-tab popup-tab-idol-card">
+
+                                        <img class="e-img card-detail" id="card-420368676" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FxYDFGeMfYab8lHkaa45E7vV7XnUnwVl3FMr6k5m1ShBaoUVn6aH2YXRJd_K5FNIq_media.jpg" width="320" height="400" alt="" style="" border="0" />
+
+                                        <div class="ui-card-serif">
+                                            <div class="card-serif-name">【人狼ｹﾞｰﾑ】握野 英雄+</div>
+                                            <div class="card-serif-comment">
+                                                『こう見えて､俺は都会じゃ名の通った占い師でね｡得意のｶｰﾄﾞ占いでなんでも見通してやるぜ｡ｶｰﾄﾞは嘘をつかない｡ｶｰﾄﾞは､な｡ｸﾋﾋｯ…!』 </div>
+                                        </div>
+                                        <div class="curved_black_box bg-8 fc-alert ta-center fs-10">
+                                            ※【人狼ｹﾞｰﾑ】握野 英雄が<br />ﾁｪﾝｼﾞ!するとこの姿になります｡ </div>
+                                    </div>
+                                    <div class="idol-select-popup-tab dnone popup-tab-idol-info is-close">
+                                        <div class="w300 ml10 mr10 mb10">
+
+                                            <div class="ui-title-accordion " id="">
+                                                <h3>ｱｲﾄﾞﾙ情報</h3>
+                                            </div>
+                                            <div class="card-idol_info">
+                                                <table>
+                                                    <tr>
+                                                        <th><span class="card-label">氏名</span></th>
+                                                        <td colspan="3">握野 英雄 (ｱｸﾉﾋﾃﾞｵ)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">誕生日</span></th>
+                                                        <td>3月7日</td>
+                                                        <th><span class="card-label">年齢</span></th>
+                                                        <td>23才</td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th><span class="card-label">身長</span></th>
+                                                        <td>171.0cm</td>
+                                                        <th><span class="card-label">体重</span></th>
+                                                        <td>67.0kg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">靴のｻｲｽﾞ</span></th>
+                                                        <td>25.5cm</td>
+                                                        <th><span class="card-label">利き手</span></th>
+                                                        <td>左利き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">星座</span></th>
+                                                        <td>魚座</td>
+                                                        <th><span class="card-label">血液型</span></th>
+                                                        <td>AB型</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">出身地</span></th>
+                                                        <td colspan="3">神奈川</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">趣味</span></th>
+                                                        <td colspan="3">ﾄﾚﾗﾝ</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">特技</span></th>
+                                                        <td colspan="3">警察犬の訓練､動物全般の躾</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="idol-select-popup-card-slide">
+                                    <div class="idol-select-popup-tab popup-tab-idol-card">
+
+                                        <img class="e-img card-detail" id="card-150959027" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FpDutapPKuYL8lHkaa45E7vV7XnUnwVl3Bd5MsmdUC_7wwJb8JSHq1mJi6_KawWQa_media.jpg" width="320" height="400" alt="" style="" border="0" />
+
+                                        <div class="ui-card-serif">
+                                            <div class="card-serif-name">【人狼ｹﾞｰﾑ】握野 英雄</div>
+                                            <div class="card-serif-comment">
+                                                よーし勝った!人狼が誰なのかすぐにわかってよかったぜ｡人狼側は動揺しても顔に出さないように気を付けるのがﾎﾟｲﾝﾄみたいだな｡ </div>
+                                        </div>
+                                    </div>
+                                    <div class="idol-select-popup-tab dnone popup-tab-idol-info is-close">
+                                        <div class="w300 ml10 mr10 mb10">
+
+                                            <div class="ui-title-accordion " id="">
+                                                <h3>ｱｲﾄﾞﾙ情報</h3>
+                                            </div>
+                                            <div class="card-idol_info">
+                                                <table>
+                                                    <tr>
+                                                        <th><span class="card-label">氏名</span></th>
+                                                        <td colspan="3">握野 英雄 (ｱｸﾉﾋﾃﾞｵ)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">誕生日</span></th>
+                                                        <td>3月7日</td>
+                                                        <th><span class="card-label">年齢</span></th>
+                                                        <td>23才</td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th><span class="card-label">身長</span></th>
+                                                        <td>171.0cm</td>
+                                                        <th><span class="card-label">体重</span></th>
+                                                        <td>67.0kg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">靴のｻｲｽﾞ</span></th>
+                                                        <td>25.5cm</td>
+                                                        <th><span class="card-label">利き手</span></th>
+                                                        <td>左利き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">星座</span></th>
+                                                        <td>魚座</td>
+                                                        <th><span class="card-label">血液型</span></th>
+                                                        <td>AB型</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">出身地</span></th>
+                                                        <td colspan="3">神奈川</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">趣味</span></th>
+                                                        <td colspan="3">ﾄﾚﾗﾝ</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">特技</span></th>
+                                                        <td colspan="3">警察犬の訓練､動物全般の躾</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="idol-select-popup-card-slide">
+                                    <div class="idol-select-popup-tab popup-tab-idol-card">
+
+                                        <img class="e-img card-detail" id="card-1217822805" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2Fj1EMSKYX-bCLWMXkLb-8390G8xKnK_bOZUyojjXMO0BwOTVlPiLbBvqTjSQUMeZT_media.jpg" width="320" height="400" alt="" style="" border="0" />
+
+                                        <div class="ui-card-serif">
+                                            <div class="card-serif-name">【人狼ｹﾞｰﾑ】水嶋 咲+</div>
+                                            <div class="card-serif-comment">
+                                                『私のせいで､兄さんも疑われてる…こんなことになったのはもしかして､私のせい…なのかな｡ごめん､兄さん､かばってくれたｴｲｼﾞさんも…』 </div>
+                                        </div>
+                                        <div class="curved_black_box bg-8 fc-alert ta-center fs-10">
+                                            ※【人狼ｹﾞｰﾑ】水嶋 咲が<br />ﾁｪﾝｼﾞ!するとこの姿になります｡ </div>
+                                    </div>
+                                    <div class="idol-select-popup-tab dnone popup-tab-idol-info is-close">
+                                        <div class="w300 ml10 mr10 mb10">
+
+                                            <div class="ui-title-accordion " id="">
+                                                <h3>ｱｲﾄﾞﾙ情報</h3>
+                                            </div>
+                                            <div class="card-idol_info">
+                                                <table>
+                                                    <tr>
+                                                        <th><span class="card-label">氏名</span></th>
+                                                        <td colspan="3">水嶋 咲 (ﾐｽﾞｼﾏｻｷ)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">誕生日</span></th>
+                                                        <td>8月19日</td>
+                                                        <th><span class="card-label">年齢</span></th>
+                                                        <td>18才</td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th><span class="card-label">身長</span></th>
+                                                        <td>160.0cm</td>
+                                                        <th><span class="card-label">体重</span></th>
+                                                        <td>48.0kg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">靴のｻｲｽﾞ</span></th>
+                                                        <td>24.0cm</td>
+                                                        <th><span class="card-label">利き手</span></th>
+                                                        <td>右利き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">星座</span></th>
+                                                        <td>獅子座</td>
+                                                        <th><span class="card-label">血液型</span></th>
+                                                        <td>B型</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">出身地</span></th>
+                                                        <td colspan="3">千葉</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">趣味</span></th>
+                                                        <td colspan="3">手品</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">特技</span></th>
+                                                        <td colspan="3">逆立ち</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="idol-select-popup-card-slide">
+                                    <div class="idol-select-popup-tab popup-tab-idol-card">
+
+                                        <img class="e-img card-detail" id="card-1309794369" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FpOCtpe9NXdaLWMXkLb-8390G8xKnK_bOqmkOwNoU97wzEetBizEqJeSSAulr9jYH_media.jpg" width="320" height="400" alt="" style="" border="0" />
+
+                                        <div class="ui-card-serif">
+                                            <div class="card-serif-name">【人狼ｹﾞｰﾑ】水嶋 咲</div>
+                                            <div class="card-serif-comment">
+                                                議論してると喉がｶﾗｶﾗになっちゃうよね｡はい､かみやが淹れてくれた紅茶を持ってきたよ!これを飲みながら人狼ｹﾞｰﾑをﾊﾟﾋﾟｯと楽しんじゃお! </div>
+                                        </div>
+                                    </div>
+                                    <div class="idol-select-popup-tab dnone popup-tab-idol-info is-close">
+                                        <div class="w300 ml10 mr10 mb10">
+
+                                            <div class="ui-title-accordion " id="">
+                                                <h3>ｱｲﾄﾞﾙ情報</h3>
+                                            </div>
+                                            <div class="card-idol_info">
+                                                <table>
+                                                    <tr>
+                                                        <th><span class="card-label">氏名</span></th>
+                                                        <td colspan="3">水嶋 咲 (ﾐｽﾞｼﾏｻｷ)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">誕生日</span></th>
+                                                        <td>8月19日</td>
+                                                        <th><span class="card-label">年齢</span></th>
+                                                        <td>18才</td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th><span class="card-label">身長</span></th>
+                                                        <td>160.0cm</td>
+                                                        <th><span class="card-label">体重</span></th>
+                                                        <td>48.0kg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">靴のｻｲｽﾞ</span></th>
+                                                        <td>24.0cm</td>
+                                                        <th><span class="card-label">利き手</span></th>
+                                                        <td>右利き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">星座</span></th>
+                                                        <td>獅子座</td>
+                                                        <th><span class="card-label">血液型</span></th>
+                                                        <td>B型</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">出身地</span></th>
+                                                        <td colspan="3">千葉</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">趣味</span></th>
+                                                        <td colspan="3">手品</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">特技</span></th>
+                                                        <td colspan="3">逆立ち</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="idol-select-popup-card-slide">
+                                    <div class="idol-select-popup-tab popup-tab-idol-card">
+
+                                        <img class="e-img card-detail" id="card-2103748445" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2ForJCjy6wlxBX9CEb-zrwKckieAxbYu2iQAzXDT8qY0TwwJb8JSHq1tJ6xhGPb5hP_media.jpg" width="320" height="400" alt="" style="" border="0" />
+
+                                        <div class="ui-card-serif">
+                                            <div class="card-serif-name">【人狼ｹﾞｰﾑ】卯月 巻緒+</div>
+                                            <div class="card-serif-comment">
+                                                『都に呼ばれている父さんたちに代わって､僕が村の平和のために占ってみせます!半人前の僕にどこまでできるか､ちょっと不安ですけど…』 </div>
+                                        </div>
+                                        <div class="curved_black_box bg-8 fc-alert ta-center fs-10">
+                                            ※【人狼ｹﾞｰﾑ】卯月 巻緒が<br />ﾁｪﾝｼﾞ!するとこの姿になります｡ </div>
+                                    </div>
+                                    <div class="idol-select-popup-tab dnone popup-tab-idol-info is-close">
+                                        <div class="w300 ml10 mr10 mb10">
+
+                                            <div class="ui-title-accordion " id="">
+                                                <h3>ｱｲﾄﾞﾙ情報</h3>
+                                            </div>
+                                            <div class="card-idol_info">
+                                                <table>
+                                                    <tr>
+                                                        <th><span class="card-label">氏名</span></th>
+                                                        <td colspan="3">卯月 巻緒 (ｳﾂﾞｷﾏｷｵ)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">誕生日</span></th>
+                                                        <td>12月12日</td>
+                                                        <th><span class="card-label">年齢</span></th>
+                                                        <td>18才</td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th><span class="card-label">身長</span></th>
+                                                        <td>163.0cm</td>
+                                                        <th><span class="card-label">体重</span></th>
+                                                        <td>52.0kg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">靴のｻｲｽﾞ</span></th>
+                                                        <td>24.5cm</td>
+                                                        <th><span class="card-label">利き手</span></th>
+                                                        <td>左利き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">星座</span></th>
+                                                        <td>射手座</td>
+                                                        <th><span class="card-label">血液型</span></th>
+                                                        <td>AB型</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">出身地</span></th>
+                                                        <td colspan="3">高知</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">趣味</span></th>
+                                                        <td colspan="3">全国ｹｰｷ食べ歩き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">特技</span></th>
+                                                        <td colspan="3">利きｹｰｷ､一輪車</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="idol-select-popup-card-slide">
+                                    <div class="idol-select-popup-tab popup-tab-idol-card">
+
+                                        <img class="e-img card-detail" id="card-953246752" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2Fj1EMSKYX-bBX9CEb-zrwKckieAxbYu2iDmXEtXLS_VxwOTVlPiLbBtNWWS_-layT_media.jpg" width="320" height="400" alt="" style="" border="0" />
+
+                                        <div class="ui-card-serif">
+                                            <div class="card-serif-name">【人狼ｹﾞｰﾑ】卯月 巻緒</div>
+                                            <div class="card-serif-comment">
+                                                このﾏｶﾛﾝ､英雄さんのｵｽｽﾒのお店で買ってきたんですよ｡これならｹﾞｰﾑをしながら食べられるかなって｡人狼ｹﾞｰﾑもﾏｶﾛﾝの味も楽しみましょう! </div>
+                                        </div>
+                                    </div>
+                                    <div class="idol-select-popup-tab dnone popup-tab-idol-info is-close">
+                                        <div class="w300 ml10 mr10 mb10">
+
+                                            <div class="ui-title-accordion " id="">
+                                                <h3>ｱｲﾄﾞﾙ情報</h3>
+                                            </div>
+                                            <div class="card-idol_info">
+                                                <table>
+                                                    <tr>
+                                                        <th><span class="card-label">氏名</span></th>
+                                                        <td colspan="3">卯月 巻緒 (ｳﾂﾞｷﾏｷｵ)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">誕生日</span></th>
+                                                        <td>12月12日</td>
+                                                        <th><span class="card-label">年齢</span></th>
+                                                        <td>18才</td>
+                                                    <tr>
+                                                    <tr>
+                                                        <th><span class="card-label">身長</span></th>
+                                                        <td>163.0cm</td>
+                                                        <th><span class="card-label">体重</span></th>
+                                                        <td>52.0kg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">靴のｻｲｽﾞ</span></th>
+                                                        <td>24.5cm</td>
+                                                        <th><span class="card-label">利き手</span></th>
+                                                        <td>左利き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">星座</span></th>
+                                                        <td>射手座</td>
+                                                        <th><span class="card-label">血液型</span></th>
+                                                        <td>AB型</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">出身地</span></th>
+                                                        <td colspan="3">高知</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">趣味</span></th>
+                                                        <td colspan="3">全国ｹｰｷ食べ歩き</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><span class="card-label">特技</span></th>
+                                                        <td colspan="3">利きｹｰｷ､一輪車</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            (function() {
+                                if (!('sliders' in window)) {
+                                    window.sliders = {}
+                                }
+                                var allowMove = true
+                                window.sliders['popup-cards-5e0d6ef8584a0'] = $('#slider-popup-cards-5e0d6ef8584a0').slider({
+                                    isLoop: true,
+                                    onLoad: false,
+                                    createNavPuces: true,
+                                    navigationType: 3,
+                                    slideElement: 'div',
+                                    slideClass: 'idol-select-popup-card-slide',
+                                    isTouch: false,
+                                    isSwipe: true,
+                                    move: function(current, direction) {
+                                        if (!allowMove) return false
+                                        var idol_select_slider = window.idol_select_sliders['idol_select-5e0d6ef8580ba']
+                                        var cmove = idol_select_slider.options.move
+                                        if (direction == 'next') {
+                                            idol_select_slider.next()
+                                        } else {
+                                            idol_select_slider.prev()
+                                        }
+                                    }
+                                });
+                                var popup = $('#popup-cards-5e0d6ef8584a0')
+                                var infoBtnHandler = function(closeinfo) {
+                                    if (closeinfo) {
+                                        popup.find('.popup-tab-idol-info').hide().removeClass('is-open')
+                                        popup.find('.popup-tab-idol-card').show()
+                                    } else {
+                                        popup.find('.popup-tab-idol-info').show().addClass('is-open')
+                                        popup.find('.popup-tab-idol-card').hide()
+                                    }
+                                }
+                                popup.find('.info-btn').on('click', function() {
+                                    var info = popup.find('.popup-tab-idol-info').first()
+                                    infoBtnHandler(info.hasClass('is-open'))
+                                    return false
+                                })
+                                $('[data-ui="popup"][data-target="popup-cards-5e0d6ef8584a0"]').on('click', function() {
+                                    allowMove = false
+                                    var idol_select_slider = window.idol_select_sliders['idol_select-5e0d6ef8580ba']
+                                    var current = idol_select_slider.options.current
+                                    window.sliders['popup-cards-5e0d6ef8584a0'].moveTo(current - 1)
+                                    if ($(this).hasClass('info-btn')) {
+                                        infoBtnHandler(false)
+                                    } else {
+                                        infoBtnHandler(true)
+                                    }
+                                    var bodyTop = document.documentElement.scrollTop || document.body.scrollTop
+                                    var zoom = $(document.body).css('zoom') || 1
+                                    if (zoom) {
+                                        zoom = parseFloat(zoom)
+                                        bodyTop -= (bodyTop - (bodyTop / zoom))
+                                    }
+                                    bodyTop += 6
+                                    popup.css('top', bodyTop + 'px')
+                                    allowMove = true
+                                    return false
+                                })
+                            })()
+                        </script>
+                    </div>
+                </div>
+                <script>
+                    (function() {
+                        if (!('idol_select_sliders' in window)) {
+                            window.idol_select_sliders = {}
+                        }
+                        window.idol_select_sliders['idol_select-5e0d6ef8580ba'] = $('#idol_select-5e0d6ef8580ba').idol_select({
+                            slideElement: 'div',
+                            slideClass: 'idol-slide',
+                            titleFlag: true,
+                            titleClass: 'idol_select-5e0d6ef8580ba_title',
+                            contentFlag: true,
+                            contentClass: 'idol_select-5e0d6ef8580ba_content'
+                        });
+                    })()
+                </script>
+                <div class="linebox comic-castbox">
+
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Falbum%2Fprofile%2F63">
+
+                        <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FcA7J2S6QyKBlJa1ijD4DOhZuU3vh_s31mRPX2RxXnPJaoUVn6aH2YZ5ME21fx36D_media.png" width="45" height="auto" alt="" style="" border="0" />
+                        <img class="e-img castbox-name" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FBTAAnnO_jKsTScMD6E3bLb_CWJg2kYBLIKTI8244V9Zxwj9xhWWyZLbEacBUfXXJ7ft5yTlP0Y8_media.png" width="45" height="auto" alt="" style="" border="0" />
+                    </a>
+
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Falbum%2Fprofile%2F62">
+
+                        <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2Ft4dKBF0vuu9lJa1ijD4DOuASgceRM637KAU9uoW--aFwOTVlPiLbBtVLMlcJ_0-D_media.png" width="45" height="auto" alt="" style="" border="0" />
+                        <img class="e-img castbox-name" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FS7pFOx_rBoATScMD6E3bLXRbq6I31Qup7ay9zGHBG5BaoUVn6aH2YQCY4APbI_LA_media.png" width="45" height="auto" alt="" style="" border="0" />
+                    </a>
+
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Falbum%2Fprofile%2F61">
+
+                        <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FcA7J2S6QyKBlJa1ijD4DOki4EKJx_eO1Pe6_pf3jQqdaoUVn6aH2YaoHxLdm7Eu2_media.png" width="45" height="auto" alt="" style="" border="0" />
+                        <img class="e-img castbox-name" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FBTAAnnO_jKsTScMD6E3bLdBTGLipbXyxQPvSrylB64lxwj9xhWWyZOFLMKEzWq2k3ZJEahFi85M_media.png" width="45" height="auto" alt="" style="" border="0" />
+                    </a>
+
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Falbum%2Fprofile%2F105">
+
+                        <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2Ft4dKBF0vuu_NNX2Vv55GBEGical4jEgkKAU9uoW--aFwOTVlPiLbBmk9sW15UJNm_media.png" width="45" height="auto" alt="" style="" border="0" />
+                        <img class="e-img castbox-name" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FS7pFOx_rBoCuoGYpg6p_7AJsyJ27BBPf7GVoOvw-svtaoUVn6aH2YctkAUdKSiwq_media.png" width="45" height="auto" alt="" style="" border="0" />
+                    </a>
+
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Falbum%2Fprofile%2F104">
+
+                        <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2F4qXeyV8HmoqNNX2Vv55GBNmY846BbPEsvmbhof14A6zwwJb8JSHq1qi2ytsg_E1o_media.png" width="45" height="auto" alt="" style="" border="0" />
+                        <img class="e-img castbox-name" id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcard%2FAp5T0JufrUuuoGYpg6p_7Ft8agYtRa6Hmyssp2-2VSP2xdRG4mhdyS-B0-IYQpsV_media.png" width="45" height="auto" alt="" style="" border="0" />
+                    </a>
+                </div>
+                <div id="list"></div>
+                <div class="ui-title-sub1 " id="">
+                    <h3>ｽﾄｰﾘｰﾘｽﾄ</h3>
+                </div>
+                <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fh_story239_xuykuqjhla.jpg" width="320" height="75" alt="" style="" border="0" />
+                <div style="position:relative;">
+                    <div style="position:absolute;z-index:0;">
+                        <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbg_story239_xuykuqjhla.jpg" width="100%" height="auto" alt="" style="" border="0" />
+                    </div>
+                </div>
+
+                <div class="wrap ta-center" style="position:relative;text-align:center;">
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F101%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn01.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F102%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn02.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F103%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn03.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F104%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn04.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F105%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn05.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F201%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn06.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F202%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn07.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F203%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn08.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F204%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn09.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F301%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn10.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F302%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn11.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F303%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn12.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F304%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn13.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F401%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn14.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F402%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn15.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F403%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn16.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F404%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn17.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F501%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn18.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F502%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn19.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F503%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn20.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F504%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn21.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F601%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn22.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F602%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn23.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F603%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn24.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+                    <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fplay%2F5106300%2F604%2Ftower_quest63%2Fevent%3Furl%3D%252Fdrama_replay%252Fevent_list%252F5106300%252F1" style="display:inline-block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fui%2Falbum%2Fbtn%2Fbtn25.png" width="52" height="45" alt="" style="" border="0" />
+                    </a>
+
+                </div>
+                <div class="posr ta-center">
+                    <div class="posr">
+                        <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fline%2Fline05.png" width="320" height="11" alt="" style="" border="0" />
+                        <div class="ta-center">
+                            <div class="mt20 fs-18">【出演者】</div>
+                            <table width="100%" class="mt20">
+                                <tr>
+                                    <td>
+                                        <div class="ta-center fs-12">
+                                            ｴｲｼﾞ <span class="ta-center fs-8"></span>
+                                        </div>
+                                        <div class="ta-center fs-14 pb20">
+                                            木村 龍 </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="ta-center fs-12">
+                                            ｶﾞﾄｰ <span class="ta-center fs-8"></span>
+                                        </div>
+                                        <div class="ta-center fs-14 pb20">
+                                            卯月 巻緒 </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="ta-center fs-12">
+                                            ｼｮｺﾗ <span class="ta-center fs-8"></span>
+                                        </div>
+                                        <div class="ta-center fs-14 pb20">
+                                            水嶋 咲 </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="ta-center fs-12">
+                                            ｳﾞｫﾙﾌｪﾝ <span class="ta-center fs-8"></span>
+                                        </div>
+                                        <div class="ta-center fs-14 pb20">
+                                            信玄 誠司 </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="ta-center fs-12">
+                                            ﾘｭｸﾞﾅｰ <span class="ta-center fs-8"></span>
+                                        </div>
+                                        <div class="ta-center fs-14 pb20">
+                                            握野 英雄 </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="position:relative;" class="mt20">
+
+                    <ul class="ui-list-link" style="">
+                        <li class="right">
+                            <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fpreview_event_swf%2F5106300" id="">ｲﾍﾞﾝﾄ告知を見る</a>
+                        </li>
+                        <li class="right">
+                            <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fpreview_gacha_swf%2F110640" id="">ｽｶｳﾄ告知を見る</a>
+                        </li>
+
+                        <li class="right">
+                            <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fcomic%2Fcomic_pages_list%2F0%2F510630001" id="">増刊号を見る</a>
+                        </li>
+                    </ul>
+                </div>
+                <div style="position:relative;">
+                    <div class="filter-pager wrap" style="">
+
+
+                        <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fnext_event%2F238%3Fopensocial_app_id%3D12017647%26opensocial_viewer_id%3D146860211%26opensocial_owner_id%3D146860211">前へ</a>
+
+                        <span class="nav-current">239/251</span>
+                        <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Fnext_event%2F240%3Fopensocial_app_id%3D12017647%26opensocial_viewer_id%3D146860211%26opensocial_owner_id%3D146860211">次へ</a>
+
+                    </div>
+
+                    <ul class="ui-list-link" style="">
+                        <li class="left">
+                            <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fdrama_replay%2Findex" id="">ｲﾍﾞﾝﾄｱﾙﾊﾞﾑTOPへ</a>
+                        </li>
+                        <li class="left">
+                            <a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fuser%2Fhome%2F" id="">ﾏｲﾃﾞｽｸへ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="footer">
+                <div id="back-to-top">
+                    <a href="" style="display: block;"><img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fbutton%2Fpagetop.png" width="320" height="41" alt="" style="" border="0" />
+                    </a>
+                </div>
+                <div class="global-menu">
+                    <ul>
+                        <li class="mydesk"><a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fuser%2Fhome">ﾏｲﾃﾞｽｸ</a></li>
+                        <li class="quest"><a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fquest%2F">営業</a></li>
+                        <li class="event_mixed"><a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fmixed%2F">ﾚｯｽﾝ</a></li>
+                        <li class="gacha"><a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fgacha%2Fevent">ｽｶｳﾄｶﾞｼｬ</a></li>
+
+                        <li class="event"><a href="?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fevent%2Fthe_seven_gods_of_fortune_live%2Findex">営業</a></li>
+                        <li class="top"><a href="http://g12017647.sp.pf.mbga.jp/user/top">TOP</a></li>
+                    </ul>
+                </div>
+                <script>
+                    (function() {
+                        var w = window,
+                            d = document,
+                            m = d.getElementById('main'),
+                            t = d.getElementById('back-to-top');
+                        var windowHeight = function() {
+                            var e = d.documentElement,
+                                g = d.getElementsByTagName('body')[0],
+                                y = w.innerHeight || e.clientHeight || g.clientHeight;
+                            return y;
+                        };
+                        var contentSize = function() {
+                            g = d.getElementById('main'),
+                                y = m.clientHeight;
+                            return parseInt(y) + 48;
+                        };
+                        if (windowHeight() < contentSize()) {
+                            $backTop = $('#back-to-top');
+                            $backTop.click(function() {
+                                $body = $("html, body");
+                                document.body.scrollTop = document.documentElement.scrollTop = 0;
+                                return false;
+                            });
+                        } else {
+                            t.style.display = 'none';
+                        }
+                    })();
+                </script>
+            </div>
+            <div class="ui-backdrop fade "></div>
+            <div id="popups">
+                <div class="ui-popup dnone use-backdrop fixed-middle" id="ui-popup-error">
+
+                    <div class="ui-popup-header">
+                        <div class="button-close ui-popup-close " data-dismiss="popup" data-sound="b">
+                            <span class="close penone" style="line-height:23px;">
+                                <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2F%2Fcommon%2Fclose.png" width="22" height="auto" alt="" style="" border="0" />
+                            </span>
+                            <a href="#" class="notouch">閉じる</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="ui-body">
+
+
+                        <div class="navi-wrapbox np-left ">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="navi_img" width="80">
+                                            <img class="e-img " id="" src="http://sp.pf-img-a.mbga.jp/12017647?url=http%3A%2F%2Fm.i-sidem.idolmaster.jp%2Fimg_sp%2F2019122701%2Fcommon%2Fnavi%2Fnavi_blue_sad.png" width="80" height="auto" alt="" style="" border="0" />
+                                        </td>
+                                        <td class="navi_text">
+
+                                            <div class="balloon balloon-over balloon-green " style="">
+                                                <p style="">ｴﾗｰが発生しました｡<br />お手数をおかけいたしますが､<br />再読み込みしてください</p>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="wrap ta-center pt0">
+
+                            <div class="ui-button-sub1 error-btn m ">
+                                <a href="" onclick="" style="" id="" target="">再読み込み</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a id="ui-popup-error-trigger" data-target="ui-popup-error" class="dnone"></a>
+            </div>
+            <div class="ta-center fs-12 linebox pt5 pb5 mt5">
+                <span>&copy;2014 BANDAI NAMCO Entertainment Inc. </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="mbga-pf-footer">
+        <div class="mbga-pf-footer-container odd-lines mbga-pf-footer-white">
+            <ul>
+                <li class="mbga-pf-footer-list">
+                    <div class="mbga-pf-fotter-content">
+                        <a class="mbga-pf-footer-arrow" href="http://sp.mbga.jp/_grp_view?g=32616414">
+                            <span class="mbga-pf-footer-caption">公式サークル</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="mbga-pf-footer-navbar">
+            <ul class="mbga-pf-box-h">
+                <li id="mbga-pf-footer-navbar-icon-grid" class="mbga-pf-footer-li">
+                    <a class="mbga-pf-footer-a mbga-pf-footer-home-w" href="http://sp.mbga.jp/?_from=globalfooter">
+                        <span class="mbga-pf-footer-txt">ホーム</span>
+                    </a>
+                </li>
+                <li id="mbga-pf-footer-navbar-icon-mypage" class="mbga-pf-footer-li">
+                    <a class="mbga-pf-footer-a mbga-pf-footer-mypage-w" href="http://sp.mbga.jp/_my0?_from=globalfooter">
+                        <span class="mbga-pf-footer-txt">マイページ</span>
+                    </a>
+                </li>
+                <li id="mbga-pf-footer-navbar-icon-mygame" class="mbga-pf-footer-li">
+                    <a class="mbga-pf-footer-a mbga-pf-footer-mygame-w" href="http://sp.mbga.jp/_game_my_top?_from=globalfooter">
+                        <span class="mbga-pf-footer-txt">マイゲーム</span>
+                    </a>
+                </li>
+                <li id="mbga-pf-footer-navbar-icon-notification" class="mbga-pf-footer-li">
+                    <a class="mbga-pf-footer-a mbga-pf-footer-game-w" href="http://sp.mbga.jp/_game_top?_from=globalfooter">
+                        <span class="mbga-pf-footer-txt">ゲーム</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <script type="text/javascript" charset="UTF-8">
+            (function() {
+                document.addEventListener('DOMContentLoaded', function() {
+                    var list = document.getElementsByClassName('mbga-pf-footer-li');
+                    var i = 0,
+                        l = list.length;
+                    for (; i < l; i++) {
+                        var elem = list[i];
+                        elem.addEventListener('touchstart', function(e) {
+                            e.currentTarget.className = e.currentTarget.className.replace(/$/, ' mbga-pf-tapped');
+                        });
+                        elem.addEventListener('touchend', function(e) {
+                            e.currentTarget.className = e.currentTarget.className.replace(/ mbga-pf-tapped/, '');
+                        });
+                        elem.addEventListener('touchmove', function(e) {});
+                    }
+                });
+            })();
+        </script>
+    </div>
+</body>
+
+</html>
